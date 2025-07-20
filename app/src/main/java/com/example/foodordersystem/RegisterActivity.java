@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etUsername, etEmail, etPassword;
     private TextView tvUsernameError, tvEmailError, tvPasswordError;
     private Button btnRegister;
+    private Button btnBack;
     private AppDatabase db;
     private UserDao userDao;
 
@@ -48,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         tvPasswordError = findViewById(R.id.tvRegisterPasswordError);
 
         btnRegister = findViewById(R.id.btnRegister);
+        btnBack = findViewById(R.id.btnBack);
 
 
         btnRegister.setOnClickListener(v -> {
@@ -85,6 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }).start();
             }
         });
+
+        btnBack.setOnClickListener(v -> finish());
 
 
 

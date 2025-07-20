@@ -22,6 +22,7 @@ public class ManageMenuActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MenuItemAdapter adapter;
     private Button btnAddItem;
+    private Button btnBack;
     private MenuFormDialog currentDialog;
 
     @Override
@@ -31,6 +32,7 @@ public class ManageMenuActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerMenu);
         btnAddItem = findViewById(R.id.btnAddItem);
+        btnBack = findViewById(R.id.btnBack);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadMenuItems();
@@ -40,6 +42,7 @@ public class ManageMenuActivity extends AppCompatActivity {
             currentDialog = dialog;
             dialog.show();
         });
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void loadMenuItems() {

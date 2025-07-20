@@ -22,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView tvEmail = findViewById(R.id.tvProfileEmail);
         TextView tvUserId = findViewById(R.id.tvProfileUserId);
         Button btnLogout = findViewById(R.id.btnLogout);
+        Button btnBack = findViewById(R.id.btnBack);
 
         tvEmail.setText(email);
         tvUserId.setText(String.valueOf(userId));
@@ -33,5 +34,6 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
+        btnBack.setOnClickListener(v -> finish());
     }
 }

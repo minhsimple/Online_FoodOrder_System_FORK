@@ -26,6 +26,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.C
     private RecyclerView recyclerView;
     private TextView txtTotalPrice;
     private Button btnCheckout;
+    private Button btnBack;
     private int userId;
 
     @Override
@@ -36,6 +37,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.C
         recyclerView = findViewById(R.id.recyclerCart);
         txtTotalPrice = findViewById(R.id.txtTotalPrice);
         btnCheckout = findViewById(R.id.btnCheckout);
+        btnBack = findViewById(R.id.btnBack);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -46,6 +48,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.C
 
         btnCheckout.setOnClickListener(v ->
                 startActivity(new android.content.Intent(this, com.example.foodordersystem.ui.order.CheckoutActivity.class)));
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void loadCartItems() {

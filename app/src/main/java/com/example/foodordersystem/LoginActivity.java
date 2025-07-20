@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     TextView tvEmailError, tvPasswordError;
     Button btnLogin;
+    Button btnBack;
 
     boolean isValid = true;
 
@@ -48,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         tvEmailError = findViewById(R.id.tvLoginEmailError);
         tvPasswordError = findViewById(R.id.tvLoginPasswordError);
         btnLogin = findViewById(R.id.btnLogin);
+        btnBack = findViewById(R.id.btnBack);
 
 
         db = AppDatabase.getInstance(getApplicationContext());
@@ -80,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                 }).start();
             }
         });
+
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void clearErrors() {
