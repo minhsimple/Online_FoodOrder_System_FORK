@@ -35,6 +35,9 @@
 <!--            </intent-filter>-->
         </activity>
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.menu.ManageMenuActivity"
             android:exported="true">
             <intent-filter>
