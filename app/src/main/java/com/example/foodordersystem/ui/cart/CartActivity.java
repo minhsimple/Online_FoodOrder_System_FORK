@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.C
         loadCartItems();
 
         btnCheckout.setOnClickListener(v ->
-                Toast.makeText(this, "Tiến hành thanh toán...", Toast.LENGTH_SHORT).show());
+                startActivity(new android.content.Intent(this, com.example.foodordersystem.ui.order.CheckoutActivity.class)));
     }
 
     private void loadCartItems() {
