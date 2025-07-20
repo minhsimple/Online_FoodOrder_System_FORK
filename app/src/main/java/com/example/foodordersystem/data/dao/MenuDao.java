@@ -23,4 +23,7 @@ public interface MenuDao {
 
     @Query("SELECT * FROM menu_items")
     List<MenuItem> getAllMenuItems();
+
+    @Query("SELECT * FROM menu_items WHERE itemId = :itemId LIMIT 1")
+    MenuItem getMenuItemById(int itemId);
 }
