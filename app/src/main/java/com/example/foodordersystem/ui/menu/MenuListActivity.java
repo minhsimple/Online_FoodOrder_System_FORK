@@ -2,6 +2,7 @@ package com.example.foodordersystem.ui.menu;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class MenuListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MenuListAdapter adapter;
     private int userId;
+    private Button btnBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +33,11 @@ public class MenuListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerMenuList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        btnBack = findViewById(R.id.btnBack);
 
         loadMenuItems();
+
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void loadMenuItems() {

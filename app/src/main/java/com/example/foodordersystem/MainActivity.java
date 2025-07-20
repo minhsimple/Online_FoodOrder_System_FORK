@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnOrders = findViewById(R.id.btnOrders);
         Button btnProfile = findViewById(R.id.btnProfile);
         Button btnManage = findViewById(R.id.btnManageMenu);
+        Button btnBack = findViewById(R.id.btnBack);
 
         btnMenu.setOnClickListener(v ->
                 startActivity(new Intent(this, MenuListActivity.class)));
@@ -35,5 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ProfileActivity.class)));
         btnManage.setOnClickListener(v ->
                 startActivity(new Intent(this, ManageMenuActivity.class)));
+        btnBack.setOnClickListener(v -> finish());
     }
 }

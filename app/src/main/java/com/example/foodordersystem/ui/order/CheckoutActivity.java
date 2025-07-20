@@ -30,6 +30,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private TextView txtMessage;
     private Button btnHistory;
+    private Button btnBack;
     private int userId;
 
     @Override
@@ -39,6 +40,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         txtMessage = findViewById(R.id.txtCheckoutMessage);
         btnHistory = findViewById(R.id.btnViewHistory);
+        btnBack = findViewById(R.id.btnBack);
 
         SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         userId = prefs.getInt("userId", -1);
@@ -47,6 +49,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         btnHistory.setOnClickListener(v ->
                 startActivity(new Intent(this, OrderHistoryActivity.class)));
+        btnBack.setOnClickListener(v -> finish());
     }
 
     private void processCheckout() {
