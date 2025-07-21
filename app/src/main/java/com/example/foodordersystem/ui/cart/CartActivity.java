@@ -17,6 +17,7 @@ import com.example.foodordersystem.data.dao.MenuDao;
 import com.example.foodordersystem.data.database.DatabaseClient;
 import com.example.foodordersystem.data.entity.CartItem;
 import com.example.foodordersystem.data.entity.MenuItem;
+import com.example.foodordersystem.ui.cart.CartItemAdapter.CartEntry;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -58,15 +59,17 @@ public class CartActivity extends AppCompatActivity implements CartItemAdapter.C
             List<CartItem> items = cartDao.getCartItemsByUser(userId);
 
             double total = 0;
+            java.util.List<CartEntry> displayItems = new java.util.ArrayList<>();
             for (CartItem item : items) {
                 MenuItem menuItem = menuDao.getMenuItemById(item.itemId);
                 if (menuItem != null) {
                     total += menuItem.price * item.quantity;
+                    displayItems.add(new CartEntry(item, menuItem));
                 }
             }
             double finalTotal = total;
             runOnUiThread(() -> {
-                recyclerView.setAdapter(new CartItemAdapter(items, this, this));
+                recyclerView.setAdapter(new CartItemAdapter(displayItems, this, this));
                 txtTotalPrice.setText(String.format("Tổng: %.0f đ", finalTotal));
             });
         });
