@@ -10,7 +10,7 @@ public class DatabaseClient {
     private final AppDatabase appDatabase;
 
     private DatabaseClient(Context context) {
-        appDatabase = Room.databaseBuilder(context, AppDatabase.class, "FoodOrderDB")
+        appDatabase = Room.databaseBuilder(context, AppDatabase.class, "food_order_database")
                 .fallbackToDestructiveMigration()
                 .build();
     }
